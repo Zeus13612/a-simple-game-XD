@@ -42,5 +42,6 @@ func _physics_process(delta):
 			
 			
 			#Meu tio harry tinha um sitio ia ia o (TERMINA A MUSICA FDP)
+			#XD
 
 	move_and_slide()
