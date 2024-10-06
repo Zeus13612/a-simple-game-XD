@@ -1,0 +1,69 @@
+[gd_scene load_steps=9 format=3 uid="uid://d07di2jiyvgdr"]
+
+[ext_resource type="Script" path="res://CharacterScript.gd" id="1_uvfr2"]
+[ext_resource type="SpriteFrames" uid="uid://orsb17msv0gq" path="res://cuphead/idle/idle.tres" id="2_v1clv"]
+[ext_resource type="Shader" path="res://shaders/grain.gdshader" id="4_6cof2"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xiwa6"]
+resource_local_to_scene = true
+shader = ExtResource("4_6cof2")
+shader_parameter/strength = 100.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6bkk7"]
+size = Vector2(94, 150)
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_17hjs"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n4y2i"]
+size = Vector2(1623, 75)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_phjxb"]
+shader = ExtResource("4_6cof2")
+shader_parameter/strength = 16.0
+
+[node name="Gameplay" type="Node2D"]
+material = SubResource("ShaderMaterial_xiwa6")
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+script = ExtResource("1_uvfr2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+position = Vector2(362, 178)
+shape = SubResource("RectangleShape2D_6bkk7")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
+position = Vector2(365, 181)
+sprite_frames = ExtResource("2_v1clv")
+
+[node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
+position = Vector2(355, 174)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CharacterBody2D/Camera2D"]
+offset_left = 106.0
+offset_top = -320.0
+offset_right = 262.0
+offset_bottom = -262.0
+text = "CU"
+visible_characters = 6
+visible_ratio = 3.0
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
+position = Vector2(324, 294.875)
+scale = Vector2(1620, 74.25)
+texture = SubResource("CanvasTexture_17hjs")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(322.5, 296.5)
+shape = SubResource("RectangleShape2D_n4y2i")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+material = SubResource("ShaderMaterial_phjxb")
+offset_left = -221.0
+offset_top = -151.0
+offset_right = 936.0
+offset_bottom = 493.0
+tooltip_text = "CUDUSAHDSHDHDUIASHDUIASHDui"
